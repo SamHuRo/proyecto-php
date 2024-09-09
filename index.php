@@ -16,6 +16,8 @@
 
         <label for="ContrasenaLabel">Contraseña:</label>
         <input type="password" name="Contrasena" required="" autocomplete="off" placeholder="Contraseña"><br><br>
+
+        <input type="submit" value="Iniciar Sesión">
     </form>
 </body>
 </html>
