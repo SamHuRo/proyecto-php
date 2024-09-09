@@ -49,6 +49,13 @@ input[type="submit"] {
     background-color: #c2c2c2;
 }
 
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 button {
     background-color: #4CAF50;
     color: white;
