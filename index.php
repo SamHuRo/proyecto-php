@@ -5,19 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-Adicionar los estilos->
     <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Sistema de notas</title>
 </head>
 <body>
-    <h1>Iniciar Sesión</h1>
 
-    <form action="Usuarios/Controladores/login.php" method="post">
-        <label for="UsuarioLabel">Usuario:</label>
-        <input type="text" name="Usuario" required="" autocomplete="off" placeholder="Usuario"><br><br>
+    <div class="wrapper">
+        
+        <form action="Usuarios/Controladores/login.php" method="post">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input class="controls" type="text" name="Usuario" required="" autocomplete="off" placeholder="Usuario">
+                <i class='bx bxs-user-circle'></i>
+            </div>
 
-        <label for="ContrasenaLabel">Contraseña:</label>
-        <input type="password" name="Contrasena" required="" autocomplete="off" placeholder="Contraseña"><br><br>
+            <div class="input-box">
+                <input class="controls" type="password" name="Contrasena" required="" autocomplete="off" placeholder="Contraseña">
+                <i class='bx bxs-lock-alt' ></i>
+            </div>
+            
+            <div class="remember-forgot">
+                <label><input type="checkbox">Remember Me</label>
+                <a href="#">Forgot Password?</a>
+            </div>
 
-        <input type="submit" value="Iniciar Sesión">
-    </form>
+            <input class="btn" type="submit" value="Iniciar Sesión">
+
+            <div class="register-link">
+                <p>Don't have an account? <a href="#">Register</a></p>
+            </div>
+        </form>
+    </div>
+
 </body>
 </html>
