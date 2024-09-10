@@ -33,7 +33,16 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Hola</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td><a href="delete.php">Eliminar</a> <a href="edit.php">Editar</a></td>
                 </tr>
             </tbody>
         </table>
