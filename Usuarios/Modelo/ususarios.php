@@ -13,10 +13,10 @@ class Usuario extends Conexion{
         $stament->bindParam(':password', $password);
         $stament->execute(); //Ejecutar
         //Rectififcar si se encontro al usuario
+        session_start();
         if($stament->rowCount() == 1){
             $result = $stament->fetch();
             //Crear las variables de session
-            session_start();
             $_SESSION['NOMBRE'] = $result["NOMBRE"] . " " . $result["APELLIDO"];
             $_SESSION['ID'] = $result["ID_USUARIO"];
             $_SESSION['PERFIL'] = $result["PERFIL"];
@@ -48,7 +48,7 @@ class Usuario extends Conexion{
 
     //Validar si es un administrador
     public function validateSessionAdministrator(){
-        session_start();
+
         if($_SESSION['ID'] != null){
             if($_SESSION['PERFIL'] == 'Administrador'){
                 header('Location: ../../Administradores/Vistas/index.php');

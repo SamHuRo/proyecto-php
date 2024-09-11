@@ -6,7 +6,6 @@ $ModeloEstudiantes = new Usuario();
 $ModeloEstudiantes->validateSession();
 
 $Modelo = new Estudiante();
-
 ?>
 
 <!DOCTYPE html>
