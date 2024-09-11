@@ -7,10 +7,10 @@ class Usuario extends Conexion{
 		$this->db = parent::__construct();
 	}
 
-    public function loginc($usuario, $password){
+    public function login($usuario, $password){
         $stament = $this->db->prepare("SELECT * FROM usuarios WHERE USUARIO = :usuario AND PASSWORD = :password");
-        $stament->binParam(':usuario', $usuario);
-        $stament->binParam(':password',$password);
+        $stament->bindParam(':usuario', $usuario);
+        $stament->bindParam(':password', $password);
         $stament->execute(); //Ejecutar
         //Rectififcar si se encontro al usuario
         if($stament->rowCount() == 1){
@@ -22,6 +22,39 @@ class Usuario extends Conexion{
             return true;
         }
         return false;
+    }
+
+    //Funciones para regrasar la información del usuario si este existe
+    public function getNombre(){
+        return $_SESSION['NOMBRE'];
+    }
+
+    public function getId(){
+        return $_SESSION['ID'];
+    }
+
+    public function getPerfil(){
+        return $_SESSION['PERFIL'];
+    }
+
+    //Validar la sesion del usuario
+    public function validateSession(){
+        if($_SESSION['ID'] == null){
+            header('Location: ../../index.php'); //Redirigir al usuario al inicio
+        }
+    }
+
+    //Validar si es un administrador
+    public function validateSessionAdministrator(){
+        if($_SESSION['ID'] != null){
+            if($_SESSION['PERFIL'] == 'Administrador'){
+                header('Location: ../../Administradores/Vistas/index.php');
+            }elseif($_SESSION['PERFIL'] == 'Docente'){
+                header('Location: ../../Docentes/Vistas/index.php');
+            }else{
+                header('Location: ../../index.php');
+            }
+        }
     }
 }
 
