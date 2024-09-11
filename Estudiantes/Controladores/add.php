@@ -18,9 +18,11 @@ if($_POST){
     $materia = $_POST['Materia'];
     $docente = $_POST['Docente'];
     $promedio = $_POST['Promedio'];
-    $fecha = date('Y-m-d');
+    $timestamp = time();
+    // Formatear la fecha en el formato "Día de la semana, dd de Mes de yyyy"
+    $fecha_formateada = date("Y m d", $timestamp);
     
-    $ModeloEstudiantes->add($nombre, $apellido, $documento, $correo, $materia, $docente, $promedio, $fecha);
+    $ModeloEstudiantes->add($nombre, $apellido, $documento, $correo, $materia, $docente, $promedio, $fecha_formateada);
     
 }else{
     header('Location: ../../Estudiantes/Vistas/add.php');
