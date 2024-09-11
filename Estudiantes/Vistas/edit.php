@@ -1,8 +1,12 @@
 <?php
 require_once('../../Usuarios/Modelo/ususarios.php');
+require_once('../../metodos.php');
 
-$verificarSesion = new Usuario();
-$verificarSesion->validateSession();
+$ModeloEstudiantes = new Usuario();
+$ModeloEstudiantes->validateSession();
+
+$ModeloMetodos = new Metodos();
+
 ?>
 
 <!DOCTYPE html>
