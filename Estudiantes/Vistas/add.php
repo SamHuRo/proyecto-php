@@ -1,3 +1,14 @@
+<?php
+require_once('../../Usuarios/Modelo/ususarios.php');
+require_once('../../metodos.php');
+
+$ModeloEstudiantes = new Usuario();
+$ModeloEstudiantes->validateSession();
+
+$ModeloMetodos = new Metodos();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,15 +35,31 @@
         Materia <br>
         <select name="Materia" require="">
             <option>Selecione</option>
-            <option value="Ingles">Ingles</option>
-            <option value="Español">Español</option>
+            <?php  
+            $materias = $ModeloMetodos->getMaterias();
+
+            if($materias != null){
+                foreach($materias as $materia){ ?>
+                <option value="<?php echo $materia['MATERIA']?>"><?php echo $materia['MATERIA']?></option>
+            <?php
+                }
+            }
+            ?>
         </select> <br><br>
 
         Docente <br>
         <select name="Docente" require="">
             <option>Selecione</option>
-            <option value="Juan">Juan</option>
-            <option value="Miguel">Miguel</option>
+            <?php  
+            $docentes = $ModeloMetodos->getDocente();
+
+            if($docentes != null){
+                foreach($docentes as $docente){ ?>
+                <option value="<?php echo $docente['NOMBRE']?>"><?php echo $docente['NOMBRE'] . " " . $docente['APELLIDO']?></option>
+            <?php
+                }
+            }
+            ?>
         </select> <br><br>
 
         Promedio <br>

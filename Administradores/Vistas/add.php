@@ -1,3 +1,16 @@
+<?php
+require_once('../../Usuarios/Modelo/ususarios.php');
+require_once('../Modelo/estudiantes.php');
+require_once('../../Materias/Modelo/materias.php');
+
+$ModeloEstudiantes = new Usuario();
+$ModeloEstudiantes->validateSession();
+
+$ModeloMaterias = new Materia("materias");
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

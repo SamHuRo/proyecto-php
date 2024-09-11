@@ -1,3 +1,11 @@
+<?php
+require_once('../../Usuarios/Modelo/ususarios.php');
+
+$Modelo = new Usuario();
+$Modelo->validateSession();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

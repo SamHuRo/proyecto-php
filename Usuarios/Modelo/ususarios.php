@@ -16,6 +16,7 @@ class Usuario extends Conexion{
         if($stament->rowCount() == 1){
             $result = $stament->fetch();
             //Crear las variables de session
+            session_start();
             $_SESSION['NOMBRE'] = $result["NOMBRE"] . " " . $result["APELLIDO"];
             $_SESSION['ID'] = $result["ID_USUARIO"];
             $_SESSION['PERFIL'] = $result["PERFIL"];
@@ -39,6 +40,7 @@ class Usuario extends Conexion{
 
     //Validar la sesion del usuario
     public function validateSession(){
+        session_start();
         if($_SESSION['ID'] == null){
             header('Location: ../../index.php'); //Redirigir al usuario al inicio
         }
@@ -46,6 +48,7 @@ class Usuario extends Conexion{
 
     //Validar si es un administrador
     public function validateSessionAdministrator(){
+        session_start();
         if($_SESSION['ID'] != null){
             if($_SESSION['PERFIL'] == 'Administrador'){
                 header('Location: ../../Administradores/Vistas/index.php');
@@ -55,6 +58,23 @@ class Usuario extends Conexion{
                 header('Location: ../../index.php');
             }
         }
+    }
+
+    //Funcion para cerrar sesion
+    public function cerrarSesion(){
+        session_destroy();
+
+        // Eliminar la cookie de sesión
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                    $params["path"], $params["domain"],
+                    $params["secure"], $params["httponly"]);
+
+        }
+        // Redirigir al usuario a la página de inicio de sesión o a otra página
+        header('Location: ../../index.php');
+        exit;
     }
 }
 
