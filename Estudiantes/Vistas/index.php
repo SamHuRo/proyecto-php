@@ -17,7 +17,6 @@ $Modelo = new Estudiante();
     <title>Sistema de Notas</title>
 </head>
 <body>
-     
     <div class="conteiner">
         <div>
             <h1>Estudiantes</h1>
@@ -67,7 +66,6 @@ $Modelo = new Estudiante();
                     }
                 }
                 ?>
-                
             </tbody>
         </table>
     </div>
