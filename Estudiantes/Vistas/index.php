@@ -24,6 +24,7 @@ $Modelo = new Estudiante();
 
         <div>
             <button><a href="add.php" target="_blank">Registrar Estudiante</a></button>
+            <button><a href="../../Usuarios/Controladores/logout.php">Cerrar Sesión</a></button>
         </div>
         <br><br>
         <table>
