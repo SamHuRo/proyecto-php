@@ -20,7 +20,7 @@ if($_POST){
     $promedio = $_POST['Promedio'];
     $timestamp = time();
     // Formatear la fecha en el formato "Día de la semana, dd de Mes de yyyy"
-    $fecha_formateada = date("Y m d", $timestamp);
+    $fecha_formateada = date("Y-m-d", $timestamp);
     
     $ModeloEstudiantes->add($nombre, $apellido, $documento, $correo, $materia, $docente, $promedio, $fecha_formateada);
     

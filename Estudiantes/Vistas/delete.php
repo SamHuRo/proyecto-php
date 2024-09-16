@@ -1,9 +1,18 @@
 <?php
 require_once('../../Usuarios/Modelo/ususarios.php');
+require_once('../../metodos.php');
+require_once('../Modelo/estudiantes.php');
 
-session_start();
-$ModeloEstudiantes = new Usuario();
-$ModeloEstudiantes->validateSession();
+$ModeloUsuario = new Usuario();
+$ModeloUsuario->validateSession();
+
+$ModeloMetodos = new Metodos();
+
+//Obtener la Id del estudiante seleccionado
+$id = $_GET['Id'];
+//echo $id;
+$Modelo = new Estudiante();
+$informacionEstudiante = $Modelo->getById($id);
 
 ?>
 
@@ -18,7 +27,7 @@ $ModeloEstudiantes->validateSession();
     <h1>Eliminar Estudiante</h1>
 
     <form action="../Controladores/delete.php" method="post">
-        <input type="hidden" name="Id" value=""> <br><br>
+        <input type="hidden" name="Id" value="<?php echo $id;?>"> <br><br>
 
         <p>¿Estás seguro de eliminar este Estudiante?</p>
 

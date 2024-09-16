@@ -72,7 +72,7 @@ $informacionEstudiante = $Modelo->getById($id);
             if($docentes != null){
                 foreach($docentes as $docente){ 
                    if($estudiante['DOCENTE'] != $docente['NOMBRE']){?>
-                <option value="<?php echo $docente['NOMBRE']?>"><?php echo $docente['NOMBRE'] . " " . $docente['APELLIDO']?></option>
+                <option value="<?php echo $docente['NOMBRE'] . " " . $docente['APELLIDO']?>"><?php echo $docente['NOMBRE'] . " " . $docente['APELLIDO']?></option>
             <?php
                    }
                 }
