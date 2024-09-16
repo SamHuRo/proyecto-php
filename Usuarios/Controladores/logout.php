@@ -14,5 +14,3 @@ if (session_status() == PHP_SESSION_ACTIVE) {
     echo "Sesión no activa";
 }
 ?>
-
-<h1>Hola</h1>
