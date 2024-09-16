@@ -2,18 +2,71 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
 }
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
     background: linear-gradient(#b7328d, #ac18c0);
+    font-family: sans-serif;
 }
 
+/*===== Estilo para la barra de menu =====*/
+.menu {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.menu h1{
+    float: left;
+    padding: 5px;
+    color: white;
+}
+
+header {
+    background: #433082;
+    width: 100%;
+    clear: both;
+    content: '';
+    display: table;
+}
+
+nav {
+    float: right;
+}
+
+nav ul li{
+    list-style: none;
+    margin-left: 75px;
+    padding: 15px 0;
+    float: left;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: bold;
+}
+
+nav ul li a::before{
+    display: block;
+    content: '';
+    width: 0%;
+    background: #b7328d;
+    height: 5px;
+    top: 0;
+    position: absolute;
+    transition: width 0.2s;
+}
+
+nav ul li a:hover::before{
+    width: 100%; 
+}
+
+/*===== Estilo para la tabla =====*/
 .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: solid 2px rgba(255, 255, 255, .2);
 }
 
