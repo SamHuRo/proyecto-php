@@ -27,19 +27,26 @@ $informacionEstudiante = $Modelo->getById($id);
     <h1>Editar Estudiante</h1>
 
     <form action="../Controladores/edit.php" method="post">
-        <input type="hidden" name="Id" value=""> <br><br>
+        <input type="hidden" name="Id" value="<?php echo $id;?>"> <br><br>
+
+        <?php
+        if($informacionEstudiante != null){
+            foreach($informacionEstudiante as $estudiante){
+
+
+        ?>
 
         Nombre <br>
-        <input type="text" name="Nombre" require="" autocapitalize="off" placeholder="Nombre"> <br><br>
+        <input type="text" name="Nombre" require="" autocapitalize="off" placeholder="Nombre" value="<?php echo $estudiante['NOMBRE']?>"> <br><br>
 
         Apellido <br>
-        <input type="text" name="Apellido" require="" autocapitalize="off" placeholder="Apellido"> <br><br>
+        <input type="text" name="Apellido" require="" autocapitalize="off" placeholder="Apellido" value="<?php echo $estudiante['APELLIDO']?>"> <br><br>
 
         Documento <br>
-        <input type="text" name="Documento" require="" autocapitalize="off" placeholder="Documento"> <br><br>
+        <input type="text" name="Documento" require="" autocapitalize="off" placeholder="Documento" value="<?php echo $estudiante['DOCUMENTO']?>"> <br><br>
 
         Correo <br>
-        <input type="email" name="Correo" require="" autocapitalize="off" placeholder="Correo"> <br><br>
+        <input type="email" name="Correo" require="" autocapitalize="off" placeholder="Correo" value="<?php echo $estudiante['CORREO']?>"> <br><br>
 
         Materia <br>
         <select name="Materia" require="">
@@ -74,8 +81,12 @@ $informacionEstudiante = $Modelo->getById($id);
         Promedio <br>
         <input type="number" name="Promedio" require="" autocapitalize="off" placeholder="Promedio"> <br><br>
 
+        
+        <?php
+                }
+            }
+        ?>
         <input type="submit" value="Editar Estudiante"> <br><br>
-
     </form>
 </body>
 </html>
