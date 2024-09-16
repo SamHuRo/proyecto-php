@@ -27,7 +27,7 @@ $informacionEstudiante = $Modelo->getById($id);
     <h1>Eliminar Estudiante</h1>
 
     <form action="../Controladores/delete.php" method="post">
-        <input type="hidden" name="Id" value="<?php echo $id;?>"> <br><br>
+        <input type="hidden" name="Id" value="<?php echo $id;?>">
 
         <p>¿Estás seguro de eliminar este Estudiante?</p>
 
