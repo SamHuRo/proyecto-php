@@ -47,7 +47,7 @@ class Estudiante extends Conexion{
     //Solo una columnas
     public function getById($Id){
         $rows = null;
-        $stament = $this->db->prepare("SELECT * FROM estudiantes WHERE  ID_USUID_ESTUDIANTEARIO = :Id");
+        $stament = $this->db->prepare("SELECT * FROM estudiantes WHERE  ID_ESTUDIANTE = :Id");
         $stament->bindParam(":Id", $Id);
         $stament->execute();
         //Uso de la función fetch() para recorrer la sentencia fila por fila

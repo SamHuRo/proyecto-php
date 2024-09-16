@@ -10,7 +10,7 @@ $ModeloMetodos = new Metodos();
 
 //Obtener la Id del estudiante seleccionado
 $id = $_GET['Id'];
-
+//echo $id;
 $Modelo = new Estudiante();
 $informacionEstudiante = $Modelo->getById($id);
 
@@ -27,13 +27,11 @@ $informacionEstudiante = $Modelo->getById($id);
     <h1>Editar Estudiante</h1>
 
     <form action="../Controladores/edit.php" method="post">
-        <input type="hidden" name="Id" value="<?php echo $id;?>"> <br><br>
+        <input type="hidden" name="Id" value="<?php echo $id;?>">
 
         <?php
         if($informacionEstudiante != null){
             foreach($informacionEstudiante as $estudiante){
-
-
         ?>
 
         Nombre <br>
@@ -50,14 +48,16 @@ $informacionEstudiante = $Modelo->getById($id);
 
         Materia <br>
         <select name="Materia" require="">
-            <option>Selecione</option>
+            <option value="<?php echo $estudiante['MATERIA']?>"><?php echo $estudiante['MATERIA']?></option>
             <?php  
             $materias = $ModeloMetodos->getMaterias();
 
             if($materias != null){
-                foreach($materias as $materia){ ?>
-                <option value="<?php echo $materia['MATERIA']?>"><?php echo $materia['MATERIA']?></option>
+                foreach($materias as $materia){ 
+                    if($estudiante['MATERIA'] != $materia['MATERIA']){ ?>
+                    <option value="<?php echo $materia['MATERIA']?>"><?php echo $materia['MATERIA']?></option>
             <?php
+                    }
                 }
             }
             ?>
@@ -65,21 +65,23 @@ $informacionEstudiante = $Modelo->getById($id);
 
         Docente <br>
         <select name="Docente" require="">
-            <option>Selecione</option>
+            <option><?php echo $estudiante['DOCENTE']?></option>
             <?php  
             $docentes = $ModeloMetodos->getDocente();
 
             if($docentes != null){
-                foreach($docentes as $docente){ ?>
+                foreach($docentes as $docente){ 
+                   if($estudiante['DOCENTE'] != $docente['NOMBRE']){?>
                 <option value="<?php echo $docente['NOMBRE']?>"><?php echo $docente['NOMBRE'] . " " . $docente['APELLIDO']?></option>
             <?php
+                   }
                 }
             }
             ?>
         </select> <br><br>
 
         Promedio <br>
-        <input type="number" name="Promedio" require="" autocapitalize="off" placeholder="Promedio"> <br><br>
+        <input type="number" name="Promedio" require="" autocapitalize="off" placeholder="Promedio" value="<?php echo $estudiante['PROMEDIO']?>"> <br><br>
 
         
         <?php

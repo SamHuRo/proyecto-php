@@ -59,8 +59,8 @@ $Modelo = new Estudiante();
                             <td><?php echo $estudiante['PROMEDIO'];?></td>
                             <td><?php echo  $estudiante['FECHA_REGISTRO'];?></td>
                             <td>
-                                <a href='edit.php?Id= <?php echo  $estudiante['ID_ESTUDIANTE'];?>' target='_blank'>Editar</a>
-                                <a href='delete.php?Id= <?php echo  $estudiante['ID_ESTUDIANTE'];?>' target='_blank'>Eliminar</a> 
+                                <a href='edit.php?Id=<?php echo  $estudiante['ID_ESTUDIANTE'];?>' target='_blank'>Editar</a>
+                                <a href='delete.php?Id=<?php echo  $estudiante['ID_ESTUDIANTE'];?>' target='_blank'>Eliminar</a> 
                             </td>
                         </tr>
                     <?php }
