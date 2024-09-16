@@ -1,9 +1,11 @@
 <?php
 require_once('../../Usuarios/Modelo/ususarios.php');
+require_once('../Modelo/docentes.php');
 
 $Modelo = new Usuario();
 $Modelo->validateSession();
 
+$ModeloDocentes = new Docente();
 ?>
 
 <!DOCTYPE html>
@@ -38,39 +40,48 @@ $Modelo->validateSession();
     </header> <br>
     <div class="conteiner">
         <div>
-            <h1>Docente</h1>
-        </div> <br><br>
-        <div>
             <button><a href="add.php" target="_blank">Registrar Docente</a></button>
         </div>
         <br><br>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Usuario</th>
-                    <th>Perfil</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>
-                        <a href="edit.php" target="_blank">Editar</a>
-                        <a href="delete.php" target="_blank">Eliminar</a> 
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Usuario</th>
+                        <th>Perfil</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $docentes = $ModeloDocentes->get();
+                        if($docentes != null){
+                            foreach($docentes as $docente){ ?>
+
+                    <tr>
+                        <td><?php echo $docente['ID_USUARIO'] ?></td>
+                        <td><?php echo $docente['NOMBRE'] ?></td>
+                        <td><?php echo $docente['APELLIDO'] ?></td>
+                        <td><?php echo $docente['USUARIO'] ?></td>
+                        <td><?php echo $docente['PERFIL'] ?></td>
+                        <td><?php echo $docente['ESTADO'] ?></td>
+                        <td>
+                            <a href="edit.php" target="_blank">Editar</a>
+                            <a href="delete.php" target="_blank">Eliminar</a> 
+                        </td>
+                    </tr>
+                    <?php
+                            }
+                        }
+                    ?>
+                    
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </body>

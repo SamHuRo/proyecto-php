@@ -43,50 +43,52 @@ $Modelo = new Estudiante();
 
         <div>
             <button><a href="add.php" target="_blank">Registrar Estudiante</a></button>
-            
         </div> <br><br>
         
+        <div class="tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Documento</th>
+                        <th>Correo</th>
+                        <th>Materias</th>
+                        <th>Docente</th>
+                        <th>Promedio</th>
+                        <th>Fecha de Registro</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $Estudiantes = $Modelo->get();
 
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Documento</th>
-                    <th>Correo</th>
-                    <th>Materias</th>
-                    <th>Docente</th>
-                    <th>Promedio</th>
-                    <th>Fecha de Registro</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $Estudiantes = $Modelo->get();
+                    if($Estudiantes!=null){
+                        foreach($Estudiantes as $estudiante){ ?>
+                            <tr>
+                                <td><?php echo  $estudiante['ID_ESTUDIANTE'];?></td>
+                                <td><?php echo  $estudiante['NOMBRE'];?></td>
+                                <td><?php echo  $estudiante['APELLIDO'];?></td>
+                                <td><?php echo  $estudiante['DOCUMENTO'];?></td>
+                                <td><?php echo  $estudiante['CORREO'];?></td>
+                                <td><?php echo  $estudiante['MATERIA'];?></td>
+                                <td><?php echo  $estudiante['DOCENTE'];?></td>
+                                <td><?php echo $estudiante['PROMEDIO'];?></td>
+                                <td><?php echo  $estudiante['FECHA_REGISTRO'];?></td>
+                                <td>
+                                    <a href='edit.php?Id=<?php echo  $estudiante['ID_ESTUDIANTE'];?>' target='_blank'>Editar</a>
+                                    <a href='delete.php?Id=<?php echo  $estudiante['ID_ESTUDIANTE'];?>' target='_blank'>Eliminar</a> 
+                                </td>
+                            </tr>
+                        <?php }
+                    }?>
+                </tbody>
+            </table>
 
-                if($Estudiantes!=null){
-                    foreach($Estudiantes as $estudiante){ ?>
-                        <tr>
-                            <td><?php echo  $estudiante['ID_ESTUDIANTE'];?></td>
-                            <td><?php echo  $estudiante['NOMBRE'];?></td>
-                            <td><?php echo  $estudiante['APELLIDO'];?></td>
-                            <td><?php echo  $estudiante['DOCUMENTO'];?></td>
-                            <td><?php echo  $estudiante['CORREO'];?></td>
-                            <td><?php echo  $estudiante['MATERIA'];?></td>
-                            <td><?php echo  $estudiante['DOCENTE'];?></td>
-                            <td><?php echo $estudiante['PROMEDIO'];?></td>
-                            <td><?php echo  $estudiante['FECHA_REGISTRO'];?></td>
-                            <td>
-                                <a href='edit.php?Id=<?php echo  $estudiante['ID_ESTUDIANTE'];?>' target='_blank'>Editar</a>
-                                <a href='delete.php?Id=<?php echo  $estudiante['ID_ESTUDIANTE'];?>' target='_blank'>Eliminar</a> 
-                            </td>
-                        </tr>
-                    <?php }
-                }?>
-            </tbody>
-        </table>
+        </div>
+        
     </div>
 
 </body>

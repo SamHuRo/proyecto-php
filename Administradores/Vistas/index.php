@@ -1,4 +1,12 @@
+<?php
+require_once('../../Usuarios/Modelo/ususarios.php');
+require_once('../Modelo/administradores.php');
 
+$Modelo = new Usuario();
+$Modelo->validateSession();
+
+$ModeloAdministradores = new Administradores();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,33 +44,46 @@
             <button><a href="add.php" target="_blank">Registrar Administrador</a></button>
         </div>
         <br><br>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Usuario</th>
-                    <th>Perfil</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>
-                        <a href="edit.php" target="_blank">Editar</a>
-                        <a href="delete.php" target="_blank">Eliminar</a> 
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Usuario</th>
+                        <th>Perfil</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $administradores = $ModeloAdministradores->get();
+                        if($administradores != null){
+                            foreach($administradores as $administrador){ ?>
+
+                    <tr>
+                        <td><?php echo $administrador['ID_USUARIO'] ?></td>
+                        <td><?php echo $administrador['NOMBRE'] ?></td>
+                        <td><?php echo $administrador['APELLIDO'] ?></td>
+                        <td><?php echo $administrador['USUARIO'] ?></td>
+                        <td><?php echo $administrador['PERFIL'] ?></td>
+                        <td><?php echo $administrador['ESTADO'] ?></td>
+                        <td>
+                            <a href="edit.php" target="_blank">Editar</a>
+                            <a href="delete.php" target="_blank">Eliminar</a> 
+                        </td>
+                    </tr>
+                    <?php
+                            }
+                        }
+                    ?>
+                    
+                </tbody>
+            </table>
+        </div>
+        
     </div>
 
 </body>

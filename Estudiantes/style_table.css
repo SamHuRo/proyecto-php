@@ -5,11 +5,13 @@
 }
 
 body {
-    background: linear-gradient(#b7328d, #ac18c0);
+    background: url('../Imagenes/img.jpg') no-repeat;
     font-family: sans-serif;
 }
 
-/*===== Estilo para la barra de menu =====*/
+/*====================================== 
+    Estilo para la barra de menu 
+=======================================*/
 .menu {
     width: 900px;
     margin: 0 auto;
@@ -62,12 +64,20 @@ nav ul li a:hover::before{
     width: 100%; 
 }
 
-/*===== Estilo para la tabla =====*/
+/*==============================
+    Estilo para la tabla 
+================================*/
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
     border: solid 2px rgba(255, 255, 255, .2);
+}
+
+.tabla {
+    display: flex;
+    justify-content: center;
 }
 
 table {
@@ -98,9 +108,11 @@ tbody tr {
 
 tbody tr:hover {
     background: rgba(243, 103, 199, .4);
-
 }
 
+/*===============================
+    Estilo para los botones 
+===============================*/
 button {
     width: 200px;
     height: 45px;

@@ -1,9 +1,11 @@
 <?php
 require_once('../../Usuarios/Modelo/ususarios.php');
+require_once('../Modelo/materias.php');
 
 $Modelo = new Usuario();
 $Modelo->validateSession();
 
+$ModeloMaterias = new Materia();
 ?>
 
 <!DOCTYPE html>
@@ -33,37 +35,45 @@ $Modelo->validateSession();
                     <li><a class="navegador" href="../../Usuarios/Controladores/logout.php">Cerrar Sesión</a></li>
                 </ul>
             </nav>
-            
         </div>
     </header> <br>
      
     <div class="conteiner">
         <div>
-            <h1>Materias</h1>
-        </div> <br><br>
-        <div>
             <button><a href="add.php" target="_blank">Registrar Materia</a></button>
+        </div> <br><br>
+        
+        <div class="tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $materias = $ModeloMaterias->get();
+                        if($materias != null){
+                            foreach($materias as $materia){ ?>
+
+                    <tr>
+                        <td><?php echo $materia['ID_MATERIA'] ?></td>
+                        <td><?php echo $materia['MATERIA'] ?></td>
+                        <td>
+                            <a href="edit.php" target="_blank">Editar</a>
+                            <a href="delete.php" target="_blank">Eliminar</a> 
+                        </td>
+                    </tr>
+                    <?php
+                            }
+                        }
+                    ?>
+                    
+                </tbody>
+            </table>
         </div>
-        <br><br>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>
-                        <a href="edit.php" target="_blank">Editar</a>
-                        <a href="delete.php" target="_blank">Eliminar</a> 
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 
 </body>
