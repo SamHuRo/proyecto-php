@@ -55,7 +55,6 @@ $ModeloMaterias = new Materia();
                 <tbody>
                     <?php
                         $materias = $ModeloMaterias->get();
-                        echo "<h1>" . $materias . "</h1>";
                         if($materias != null){
                             foreach($materias as $materia){ ?>
 
