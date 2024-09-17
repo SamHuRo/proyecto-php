@@ -1,6 +1,6 @@
 <?php
 require_once('../../Usuarios/Modelo/ususarios.php');
-require_once('../Modelo/docnetes.php');
+require_once('../Modelo/docentes.php');
 
 $verificarSesion = new Usuario();
 $verificarSesion->validateSession();
