@@ -13,7 +13,6 @@ $id = $_GET['Id'];
 //echo $id;
 $Modelo = new Administradores();
 $informacionAdministradores = $Modelo->getById($id);
-
 ?>
 
 <!DOCTYPE html>

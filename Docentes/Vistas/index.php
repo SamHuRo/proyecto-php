@@ -70,8 +70,8 @@ $ModeloDocentes = new Docente();
                         <td><?php echo $docente['PERFIL'] ?></td>
                         <td><?php echo $docente['ESTADO'] ?></td>
                         <td>
-                            <a href="edit.php" target="_blank">Editar</a>
-                            <a href="delete.php" target="_blank">Eliminar</a> 
+                            <a href="edit.php?Id=<?php echo $docente['ID_USUARIO'] ?>" target="_blank">Editar</a>
+                            <a href="delete.php?Id=<?php echo $docente['ID_USUARIO'] ?>" target="_blank">Eliminar</a> 
                         </td>
                     </tr>
                     <?php

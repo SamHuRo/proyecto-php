@@ -1,13 +1,9 @@
 <?php
 require_once('../../Usuarios/Modelo/ususarios.php');
 require_once('../Modelo/administradores.php');
-require_once('../../Materias/Modelo/materias.php');
 
-$ModeloEstudiantes = new Usuario();
-$ModeloEstudiantes->validateSession();
-
-$ModeloMaterias = new Materia("materias");
-
+$Modelo = new Usuario();
+$Modelo->validateSession();
 ?>
 
 
