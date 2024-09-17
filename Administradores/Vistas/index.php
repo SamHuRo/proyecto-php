@@ -71,8 +71,8 @@ $ModeloAdministradores = new Administradores();
                         <td><?php echo $administrador['PERFIL'] ?></td>
                         <td><?php echo $administrador['ESTADO'] ?></td>
                         <td>
-                            <a href="edit.php" target="_blank">Editar</a>
-                            <a href="delete.php" target="_blank">Eliminar</a> 
+                            <a href="edit.php?Id=<?php echo  $administrador['ID_USUARIO'];?>" target="_blank">Editar</a>
+                            <a href="delete.php?Id=<?php echo  $administrador['ID_USUARIO'];?>" target="_blank">Eliminar</a> 
                         </td>
                     </tr>
                     <?php

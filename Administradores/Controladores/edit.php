@@ -14,11 +14,11 @@ if($_POST){
     $id = $_POST['Id'];
     $nombre = $_POST['Nombre'];
     $apellido = $_POST['Apellido'];
-    $ususario = $_POST['Usuario'];
+    $usuario = $_POST['Usuario'];
     $password = $_POST['Password'];
     $estado = $_POST['Estado'];
     
-    $ModeloAdministradores->update($id, $nombre, $apellido, $ususario, $password, $estado);
+    $ModeloAdministradores->update($id, $nombre, $apellido, $usuario, $password, $estado);
     
 }else{
     header('Location: ../../Administradores/Vistas/add.php');
