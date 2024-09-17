@@ -9,15 +9,13 @@ class Docente extends Conexion{
     //Funcion para insertar
     public function add($Nombre, $Apellido, $Usuario, $Password){
         //Objeto de la sentencia de MySQL, el metodo prepare() prepara una sentencia para su ejecución y devuleve  un objeto
-        $stament = $this->db->prepare("INSERT INTO usuarios (NOMBRE, APELLIDO, USUARIO, PASSWORD, PERFIL, ESTADO) VALUES (:Nombre, :Apellido, :Usuario, :Password, :Perfil, :Estado)");
+        $stament = $this->db->prepare("INSERT INTO usuarios (NOMBRE, APELLIDO, USUARIO, PASSWORD, PERFIL, ESTADO) VALUES (:Nombre, :Apellido, :Usuario, :Password, 'Docente', 'Activo')");
 
         //Asignar los valores a insertar
         $stament->bindParam(":Nombre", $Nombre);
         $stament->bindParam(":Apellido", $Apellido);
         $stament->bindParam(":Usuario", $Usuario);
         $stament->bindParam(":Password", $Password);
-        $stament->bindParam(":Perfil", "Docente");
-        $stament->bindParam(":Estado", "Activo");
 
         //Ejecutar la sentencia con el metodo execute()
         if($stament->execute()){
@@ -58,7 +56,7 @@ class Docente extends Conexion{
     //Funcion para actualizar
     public function update($Id, $Nombre, $Apellido, $Usuario, $Password, $Estado){
         //Objeto de la sentencia de MySQL, el metodo prepare() prepara una sentencia para su ejecución y devuleve  un objeto
-        $stament = $this->db->prepare("UPDATE usuarios SET NOMBRE = :Nombre, APELLIDO = :Apellido, USUARIO = :Usuario, PASSWORD = :Password, PERFIL = :Perfil, ESTADO = :Estado WHERE ID_USUARIO = :Id");
+        $stament = $this->db->prepare("UPDATE usuarios SET NOMBRE = :Nombre, APELLIDO = :Apellido, USUARIO = :Usuario, PASSWORD = :Password, PERFIL = 'Docente', ESTADO = :Estado WHERE ID_USUARIO = :Id");
 
         //Asignar los valores a insertar
         $stament->bindParam(":Id", $Id);
@@ -66,7 +64,6 @@ class Docente extends Conexion{
         $stament->bindParam(":Apellido", $Apellido);
         $stament->bindParam(":Usuario", $Usuario);
         $stament->bindParam(":Password", $Password);
-        $stament->bindParam(":Perfil", "Docente");
         $stament->bindParam(":Estado", $Estado);
 
         //Ejecutar la sentencia con el metodo execute()

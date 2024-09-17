@@ -24,14 +24,14 @@ $informacionAdministradores = $Modelo->getById($id);
     <title>Sistema de Notas</title>
 </head>
 <body>
-    <h1>Eliminar Estudiante</h1>
+    <h1>Eliminar Administrador</h1>
 
     <form action="../Controladores/delete.php" method="post">
         <input type="hidden" name="Id" value="<?php echo $id;?>">
 
-        <p>¿Estás seguro de eliminar este Estudiante?</p>
+        <p>¿Estás seguro de eliminar este Administrador?</p>
 
-        <input type="submit" value="Eliminar Estudiante"> <br><br>
+        <input type="submit" value="Eliminar Administrador"> <br><br>
 
     </form>
 </body>
