@@ -10,10 +10,9 @@ $ModeloMetodos = new Metodos();
 
 //Obtener la Id del estudiante seleccionado
 $id = $_GET['Id'];
-//echo $id;
-$Modelo = new Estudiante();
-$informacionEstudiante = $Modelo->getById($id);
 
+$Modelo = new Administradores();
+$informacionAdministradores = $Modelo->getById($id);
 ?>
 
 <!DOCTYPE html>
@@ -30,8 +29,8 @@ $informacionEstudiante = $Modelo->getById($id);
         <input type="hidden" name="Id" value="<?php echo $id;?>">
 
         <?php
-        if($informacionEstudiante != null){
-            foreach($informacionEstudiante as $estudiante){
+        if($informacionAdministradores != null){
+            foreach($informacionAdministradores as $administrador){
         ?>
 
         Nombre <br>

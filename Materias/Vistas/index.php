@@ -55,17 +55,18 @@ $ModeloMaterias = new Materia();
                 <tbody>
                     <?php
                         $materias = $ModeloMaterias->get();
+                        echo "<h1>" . $materias . "</h1>";
                         if($materias != null){
                             foreach($materias as $materia){ ?>
 
-                    <tr>
-                        <td><?php echo $materia['ID_MATERIA'] ?></td>
-                        <td><?php echo $materia['MATERIA'] ?></td>
-                        <td>
-                            <a href="edit.php" target="_blank">Editar</a>
-                            <a href="delete.php" target="_blank">Eliminar</a> 
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><?php echo $materia['ID_MATERIA'] ?></td>
+                            <td><?php echo $materia['MATERIA'] ?></td>
+                            <td>
+                                <a href="edit.php" target="_blank">Editar</a>
+                                <a href="delete.php" target="_blank">Eliminar</a> 
+                            </td>
+                        </tr>
                     <?php
                             }
                         }

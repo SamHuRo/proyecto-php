@@ -1,3 +1,19 @@
+<?php
+require_once('../../Usuarios/Modelo/ususarios.php');
+require_once('../../metodos.php');
+require_once('../Modelo/estudiantes.php');
+
+$ModeloUsuario = new Usuario();
+$ModeloUsuario->validateSession();
+
+$ModeloMetodos = new Metodos();
+
+//Obtener la Id del estudiante seleccionado
+$id = $_GET['Id'];
+//echo $id;
+$Modelo = new Estudiante();
+$informacionEstudiante = $Modelo->getById($id);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

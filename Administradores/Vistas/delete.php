@@ -1,3 +1,21 @@
+<?php
+require_once('../../Usuarios/Modelo/ususarios.php');
+require_once('../../metodos.php');
+require_once('../Modelo/administradores.php');
+
+$ModeloUsuario = new Usuario();
+$ModeloUsuario->validateSession();
+
+$ModeloMetodos = new Metodos();
+
+//Obtener la Id del estudiante seleccionado
+$id = $_GET['Id'];
+//echo $id;
+$Modelo = new Administradores();
+$informacionAdministradores = $Modelo->getById($id);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +24,14 @@
     <title>Sistema de Notas</title>
 </head>
 <body>
-    <h1>Eliminar Administrador</h1>
+    <h1>Eliminar Estudiante</h1>
 
     <form action="../Controladores/delete.php" method="post">
-        <input type="hidden" name="Id" value=""> <br><br>
+        <input type="hidden" name="Id" value="<?php echo $id;?>">
 
-        <p>¿Estás seguro de eliminar este Administrador?</p>
+        <p>¿Estás seguro de eliminar este Estudiante?</p>
 
-        <input type="submit" value="Eliminar Administrador"> <br><br>
+        <input type="submit" value="Eliminar Estudiante"> <br><br>
 
     </form>
 </body>
