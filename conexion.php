@@ -4,7 +4,7 @@ class Conexion {
     protected $db;
     private $driver = "mysql";
     private $host = "localhost"; //El lugar donde se ejecutará la conexión
-    private $dbname = "test"; //Especificar el nombre de la base de datos
+    private $dbname = "proyecto"; //Especificar el nombre de la base de datos
     private $usuario = "root"; //El usuario de conexión de la base de datos
     private $contrasena = ""; //La contraseña de conexión a la base de datos
 
