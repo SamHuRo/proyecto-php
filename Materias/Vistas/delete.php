@@ -3,6 +3,10 @@ require_once('../../Usuarios/Modelo/ususarios.php');
 
 $Modelo = new Usuario();
 $Modelo->validateSession();
+
+$ModeloMateria = new Materia();
+
+$id = $_GET['Id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +19,7 @@ $Modelo->validateSession();
     <h1>Eliminar Materia</h1>
 
     <form action="../Controladores/delete.php" method="post">
-        <input type="hidden" name="Id" value=""> <br><br>
+        <input type="hidden" name="Id" value="<?php echo $id;?>"> <br>
 
         <p>¿Estás seguro de eliminar este Materia?</p>
 
