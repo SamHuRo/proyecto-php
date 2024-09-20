@@ -4,8 +4,9 @@ session_start();
 
 if (session_status() == PHP_SESSION_ACTIVE) {
     // La sesión está activa
-    echo "Sesión activa <br>";
-    echo "Sesión con Id: " . $_SESSION['ID'] . ", Nombre: " . $_SESSION["NOMBRE"] . ", Perfil: " . $_SESSION['PERFIL'];
+    $_SESSION['ID'] = null;
+    $_SESSION['NOMBRE'] = null;
+    $_SESSION['PERFIL'] = null;
     //Cerrar la sesión
     $modelo = new Usuario();
     $modelo->cerrarSesion();

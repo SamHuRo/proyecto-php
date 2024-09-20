@@ -2,10 +2,10 @@
 require_once('../../Usuarios/Modelo/ususarios.php');
 require_once('../Modelo/estudiantes.php');
 
-$ModeloEstudiantes = new Usuario();
-$ModeloEstudiantes->validateSession();
+$Modelo = new Usuario();
+$Modelo->validateSession();
 
-$Modelo = new Estudiante();
+$ModeloEstudiantes = new Estudiante();
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +27,8 @@ $Modelo = new Estudiante();
             ?>
 
             <h1><?php echo $nombre_carpeta_padre;?></h1>
+            <?php
+            if($Modelo->getPerfil() == 'Administrador'){ ?>
             <nav>
                 <ul>
                     <li><a class="navegador" href="../../Administradores/Vistas/index.php">Administradores</a></li>
@@ -35,6 +37,17 @@ $Modelo = new Estudiante();
                     <li><a class="navegador" href="../../Usuarios/Controladores/logout.php">Cerrar Sesión</a></li>
                 </ul>
             </nav>
+            <?php
+            }else{ ?>
+            <nav>
+                <ul>
+                    <li><a class="navegador" href="../../Usuarios/Controladores/logout.php">Cerrar Sesión</a></li>
+                </ul>
+            </nav>
+            <?php                
+            }
+            ?>
+            
             
         </div>
     </header> <br>
@@ -63,7 +76,7 @@ $Modelo = new Estudiante();
                 </thead>
                 <tbody>
                     <?php
-                    $Estudiantes = $Modelo->get();
+                    $Estudiantes = $ModeloEstudiantes->get();
 
                     if($Estudiantes!=null){
                         foreach($Estudiantes as $estudiante){ ?>

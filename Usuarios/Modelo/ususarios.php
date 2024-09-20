@@ -52,9 +52,8 @@ class Usuario extends Conexion{
         if($_SESSION['ID'] != null){
             if($_SESSION['PERFIL'] == 'Administrador'){
                 header('Location: ../../Administradores/Vistas/index.php');
-            }elseif($_SESSION['PERFIL'] == 'Docente'){
-                header('Location: ../../Docentes/Vistas/index.php');
-            }else{
+            }
+            else{
                 header('Location: ../../index.php');
             }
         }
