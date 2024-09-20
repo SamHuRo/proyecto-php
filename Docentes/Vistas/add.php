@@ -1,8 +1,8 @@
 <?php
 require_once('../../Usuarios/Modelo/ususarios.php');
 
-$ModeloEstudiantes = new Usuario();
-$ModeloEstudiantes->validateSession();
+$Modelo = new Usuario();
+$Modelo->validateSession();
 ?>
 
 <!DOCTYPE html>

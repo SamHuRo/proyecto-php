@@ -11,7 +11,7 @@ class Materia extends Conexion{
     //Funcion para insertar
     public function add($Nombre){
         //Objeto de la sentencia de MySQL, el metodo prepare() prepara una sentencia para su ejecución y devuleve  un objeto
-        $stament = $this->db->prepare("INSERT INTO materias (NOMBRE) 
+        $stament = $this->db->prepare("INSERT INTO materias (MATERIA) 
         VALUES (:Nombre)");
 
         //Asignar los valores a insertar
@@ -56,13 +56,12 @@ class Materia extends Conexion{
     //Funcion para actualizar
     public function update($Id, $Nombre){
         //Objeto de la sentencia de MySQL, el metodo prepare() prepara una sentencia para su ejecución y devuleve  un objeto
-        $stament = $this->db->prepare("UPDATE materias SET NOMBRE = :Nombre WHERE ID_MATERIA = :Id");
+        $stament = $this->db->prepare("UPDATE materias SET MATERIA = :Nombre WHERE ID_MATERIA = :Id");
 
         //Asignar los valores a insertar
         $stament->bindParam(":Id", $Id);
         $stament->bindParam(":Nombre", $Nombre);
-
-
+ 
         //Ejecutar la sentencia con el metodo execute()
         if($stament->execute()){
             header('Location: ../Vistas/index.php');

@@ -1,3 +1,16 @@
+<?php
+require_once('../../Usuarios/Modelo/ususarios.php');
+require_once('../Modelo/materias.php');
+
+$Modelo = new Usuario();
+$Modelo->validateSession();
+
+$ModeloMaterias = new Materia();
+
+//Obtener el Id de la materia
+$id = $_GET['Id'];
+$informacionMateria = $ModeloMaterias->getById($id);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +27,19 @@
         </div> <br><br>
         <div>
             <form action="../Controladores/edit.php" method="post">
-                Nombre <br>
-                <input type="text" name="Nombre" require="" autocapitalize="off" placeholder="Nombre Materia"> <br><br>
+                <input type="hidden" name="Id" value="<?php echo $id;?>"> 
+                <?php 
+                    if($informacionMateria != null){
+                        foreach($informacionMateria as $materia){?>
+                            
+                            
+                            Nombre <br>
+                            <input type="text" name="Nombre" require="" autocapitalize="off" placeholder="Nombre Materia" value="<?php echo $materia['MATERIA']?>"> <br><br>
+                <?php
+                        }
+                    }
+                ?>
+                
 
                 <input type="submit" value="Editar Materia"> <br><br>
             </form>

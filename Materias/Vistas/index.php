@@ -56,20 +56,20 @@ $Modelo->validateSession();
 
                         $materias = $ModeloMaterias->get();
 
-                        
+                        if($materias != null){
                             foreach($materias as $materia){ ?>
                         
                         <tr>
                             <td><?php echo $materia['ID_MATERIA'] ?></td>
                             <td><?php echo $materia['MATERIA'] ?></td>
                             <td>
-                                <a href="edit.php" target="_blank">Editar</a>
-                                <a href="delete.php" target="_blank">Eliminar</a> 
+                                <a href="edit.php?Id=<?php echo $materia['ID_MATERIA']?>" target="_blank">Editar</a>
+                                <a href="delete.php?Id=<?php echo $materia['ID_MATERIA']?>" target="_blank">Eliminar</a> 
                             </td>
                         </tr>
                     <?php
                             }
-                        
+                        }
                     ?>
                     
                 </tbody>
