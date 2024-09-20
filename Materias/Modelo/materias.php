@@ -29,8 +29,7 @@ class Materia extends Conexion{
     //Traer toda la tabla
     public function get(){
         $rows = null;
-        $stament = $this->db->prepare("SELECT * FROM materias");
-        
+        $stament = $this->db->prepare("SELECT * FROM `materias`");
         //Uso de la función fetch() para recorrer la sentencia fila por fila
         while($result = $stament->fetch()){
             $rows[] = $result;

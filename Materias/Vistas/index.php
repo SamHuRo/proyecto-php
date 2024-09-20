@@ -4,8 +4,6 @@ require_once('../Modelo/materias.php');
 
 $Modelo = new Usuario();
 $Modelo->validateSession();
-
-$ModeloMaterias = new Materia();
 ?>
 
 <!DOCTYPE html>
@@ -54,10 +52,13 @@ $ModeloMaterias = new Materia();
                 </thead>
                 <tbody>
                     <?php
-                        $materias = $ModeloMaterias->get();
-                        if($materias != null){
-                            foreach($materias as $materia){ ?>
+                        $ModeloMaterias = new Materia();
 
+                        $materias = $ModeloMaterias->get();
+
+                        
+                            foreach($materias as $materia){ ?>
+                        
                         <tr>
                             <td><?php echo $materia['ID_MATERIA'] ?></td>
                             <td><?php echo $materia['MATERIA'] ?></td>
@@ -68,7 +69,7 @@ $ModeloMaterias = new Materia();
                         </tr>
                     <?php
                             }
-                        }
+                        
                     ?>
                     
                 </tbody>

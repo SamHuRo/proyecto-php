@@ -75,6 +75,14 @@ class Usuario extends Conexion{
         header('Location: ../../index.php');
         exit;
     }
+
+    //Funcion para imprimir el usuario
+    public function perfil(){
+        $nombre = $_SESSION['NOMBRE'];
+        $perfil = $_SESSION['PERFIL'];
+
+        echo "<h2>Usuario: " . $nombre . "- Perfil: " . $perfil . "</h2>";
+    }
 }
 
 ?>

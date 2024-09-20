@@ -53,7 +53,7 @@ $ModeloEstudiantes = new Estudiante();
     </header> <br>
 
     <div class="conteiner">
-
+        <?php $Modelo->perfil(); ?> <br>
         <div>
             <button><a href="add.php" target="_blank">Registrar Estudiante</a></button>
         </div> <br><br>
