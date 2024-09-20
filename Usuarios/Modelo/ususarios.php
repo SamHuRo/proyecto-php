@@ -77,11 +77,11 @@ class Usuario extends Conexion{
     }
 
     //Funcion para imprimir el usuario
-    public function perfil(){
+    public function mostrarPerfil(){
         $nombre = $_SESSION['NOMBRE'];
         $perfil = $_SESSION['PERFIL'];
 
-        echo "<h2>Usuario: " . $nombre . "- Perfil: " . $perfil . "</h2>";
+        echo "<p>" . $nombre . "</p><p>Perfil: " . $perfil . "</p>";
     }
 }
 

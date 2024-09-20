@@ -33,6 +33,7 @@ $ModeloAdministradores = new Administradores();
                         <li><a class="navegador" href="../../Docentes/Vistas/index.php">Docentes</a></li>
                         <li><a class="navegador" href="../../Materias/Vistas/index.php">Materias</a></li>
                         <li><a class="navegador" href="../../Usuarios/Controladores/logout.php">Cerrar Sesión</a></li>
+                        <li><?php $Modelo->mostrarPerfil(); ?></li>   
                     </ul>
                 </nav>
                 

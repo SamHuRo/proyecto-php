@@ -21,6 +21,8 @@ body {
     float: left;
     padding: 5px;
     color: white;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 header {
@@ -37,10 +39,11 @@ nav {
 
 nav ul li{
     list-style: none;
-    margin-left: 75px;
-    padding: 15px 0;
+    margin-left: 55px;
+    padding: 10px 0;
     float: left;
     position: relative;
+    font-size: 15px;
 }
 
 nav ul li a {
@@ -62,6 +65,12 @@ nav ul li a::before{
 
 nav ul li a:hover::before{
     width: 100%; 
+}
+
+nav ul li p {
+    font-size: smaller;
+    color: aliceblue;
+    font-style: italic;
 }
 
 /*==============================
@@ -139,6 +148,3 @@ button a {
     font-weight: 600;
 }
 
-button a {
-    cursor: pointer;
-}

@@ -31,6 +31,7 @@ $Modelo->validateSession();
                     <li><a class="navegador" href="../../Estudiantes/Vistas/index.php">Estudiantes</a></li>
                     <li><a class="navegador" href="../../Docentes/Vistas/index.php">Docentes</a></li>
                     <li><a class="navegador" href="../../Usuarios/Controladores/logout.php">Cerrar Sesión</a></li>
+                    <li><?php $Modelo->mostrarPerfil(); ?></li>   
                 </ul>
             </nav>
         </div>

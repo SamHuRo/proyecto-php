@@ -33,6 +33,7 @@ $ModeloDocentes = new Docente();
                     <li><a class="navegador" href="../../Estudiantes/Vistas/index.php">Estudiantes</a></li>
                     <li><a class="navegador" href="../../Materias/Vistas/index.php">Materias</a></li>
                     <li><a class="navegador" href="../../Usuarios/Controladores/logout.php">Cerrar Sesión</a></li>
+                    <li><?php $Modelo->mostrarPerfil(); ?></li> 
                 </ul>
             </nav>
             
