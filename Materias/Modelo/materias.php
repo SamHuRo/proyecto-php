@@ -30,6 +30,7 @@ class Materia extends Conexion{
     public function get(){
         $rows = null;
         $stament = $this->db->prepare("SELECT * FROM `materias`");
+        $stament->execute();
         //Uso de la función fetch() para recorrer la sentencia fila por fila
         while($result = $stament->fetch()){
             $rows[] = $result;
