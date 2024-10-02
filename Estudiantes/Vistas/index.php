@@ -43,6 +43,7 @@ $ModeloEstudiantes = new Estudiante();
             <nav>
                 <ul>
                     <li><a class="navegador" href="../../Usuarios/Controladores/logout.php">Cerrar Sesión</a></li>
+                    <li><?php $Modelo->mostrarPerfil(); ?></li>  
                 </ul>
             </nav>
             <?php                
