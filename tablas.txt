@@ -1,0 +1,20 @@
+/*Tabla usuarios*/
+CREATE TABLE usuarios( ID_USUARIO int(15) AUTO_INCREMENT PRIMARY KEY, NOMBRE varchar(60), APELLIDO varchar(60), USUARIO varchar(40), PASSWORD varchar(80), PERFIL varchar(30), ESTADO varchar(20) );
+
+/*Tabla estudiantes*/
+CREATE TABLE estudiantes (
+    ID_ESTUDIANTE int(15) AUTO_INCREMENT PRIMARY KEY,
+    NOMBRE varchar(60),
+    APELLIDO varchar(60),
+    DOCUMENTO varchar(60),
+    CORREO varchar(60),
+    MATERIA varchar(30),
+    PROMEDIO int(3),
+    FECHA_REGISTRO date
+);
+
+/*Tabla materia*/
+CREATE TABLE materias (
+    ID_MATERIA int(15) AUTO_INCREMENT PRIMARY KEY,
+    MATERIA varchar(30)
+);
