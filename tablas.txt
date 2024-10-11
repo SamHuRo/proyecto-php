@@ -9,6 +9,7 @@ CREATE TABLE estudiantes (
     DOCUMENTO varchar(60),
     CORREO varchar(60),
     MATERIA varchar(30),
+    DOCENTE varchar(60),
     PROMEDIO int(3),
     FECHA_REGISTRO date
 );
